@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Care {
 
@@ -16,6 +18,7 @@ public class Care {
 	
 	private String name;
 	
+	@Type(type="text")
 	private String description;
 
 	public Long getId() {

@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class AnimalRight {
 
@@ -14,6 +16,7 @@ public class AnimalRight {
 
 	private String name;
 
+	@Type(type="text")
 	private String worldDeclarationOnAnimalRights;
 
 	public Long getId() {

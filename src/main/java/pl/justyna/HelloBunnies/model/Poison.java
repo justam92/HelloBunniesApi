@@ -1,9 +1,12 @@
 package pl.justyna.HelloBunnies.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 public class Poison {
@@ -14,6 +17,7 @@ public class Poison {
 	
 	private String name;
 	
+	@Type(type="text")
 	private String whyCanNotThisBeGivenToARabbit;
 
 	public Long getId() {
