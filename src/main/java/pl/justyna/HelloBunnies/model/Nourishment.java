@@ -16,11 +16,11 @@ public class Nourishment {
 	
 	private String name;
 	
-	private int vitaminC;
+	private int vitaminC;//TODO: int -> String
 	
-	private int calcium;
+	private int calcium;//TODO: int -> String
 	
-	private int phosphorus;
+	private int phosphorus;//TODO: int -> String
 	
 	private String administrationFrequency;
 	

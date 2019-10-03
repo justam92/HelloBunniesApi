@@ -19,7 +19,7 @@ public class CareCategory {
 	private String name;
 	
 	@Transient
-	private List<Care> careList = new ArrayList<Care>();
+	private List<Care> healths = new ArrayList<Care>(); 
 
 	public Long getId() {
 		return id;
@@ -38,18 +38,18 @@ public class CareCategory {
 	}
 
 	public List<Care> getCareList() {
-		return careList;
+		return healths;
 	}
 
 	public void setCareList(List<Care> careList) {
-		this.careList = careList;
+		this.healths = careList;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((careList == null) ? 0 : careList.hashCode());
+		result = prime * result + ((healths == null) ? 0 : healths.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
@@ -64,10 +64,10 @@ public class CareCategory {
 		if (getClass() != obj.getClass())
 			return false;
 		CareCategory other = (CareCategory) obj;
-		if (careList == null) {
-			if (other.careList != null)
+		if (healths == null) {
+			if (other.healths != null)
 				return false;
-		} else if (!careList.equals(other.careList))
+		} else if (!healths.equals(other.healths))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -84,7 +84,7 @@ public class CareCategory {
 
 	@Override
 	public String toString() {
-		return "CareCategory [id=" + id + ", name=" + name + ", careList=" + careList + "]";
+		return "CareCategory [id=" + id + ", name=" + name + ", careList=" + healths + "]";
 	}
 	
 }

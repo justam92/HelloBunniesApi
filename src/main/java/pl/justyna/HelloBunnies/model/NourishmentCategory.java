@@ -21,6 +21,12 @@ public class NourishmentCategory {
 	@Transient
 	private List<Nourishment> nourishments = new ArrayList<Nourishment>();
 
+	@Transient
+	private List<OtherNourishment> otherNourishments = new ArrayList<OtherNourishment>();
+	
+	@Transient
+	private List<SeedAndCereal> seedsAndCereals = new ArrayList<SeedAndCereal>();
+
 	public Long getId() {
 		return id;
 	}
@@ -45,6 +51,22 @@ public class NourishmentCategory {
 		this.nourishments = nourishments;
 	}
 
+	public List<OtherNourishment> getOtherNourishments() {
+		return otherNourishments;
+	}
+
+	public void setOtherNourishments(List<OtherNourishment> otherNourishments) {
+		this.otherNourishments = otherNourishments;
+	}
+
+	public List<SeedAndCereal> getSeedsAndCereals() {
+		return seedsAndCereals;
+	}
+
+	public void setSeedsAndCereals(List<SeedAndCereal> seedsAndCereals) {
+		this.seedsAndCereals = seedsAndCereals;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -52,6 +74,8 @@ public class NourishmentCategory {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((nourishments == null) ? 0 : nourishments.hashCode());
+		result = prime * result + ((otherNourishments == null) ? 0 : otherNourishments.hashCode());
+		result = prime * result + ((seedsAndCereals == null) ? 0 : seedsAndCereals.hashCode());
 		return result;
 	}
 
@@ -79,14 +103,23 @@ public class NourishmentCategory {
 				return false;
 		} else if (!nourishments.equals(other.nourishments))
 			return false;
+		if (otherNourishments == null) {
+			if (other.otherNourishments != null)
+				return false;
+		} else if (!otherNourishments.equals(other.otherNourishments))
+			return false;
+		if (seedsAndCereals == null) {
+			if (other.seedsAndCereals != null)
+				return false;
+		} else if (!seedsAndCereals.equals(other.seedsAndCereals))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "NourishmentCategory [id=" + id + ", name=" + name + ", nourishments=" + nourishments + "]";
-	} 
-
-
+		return "NourishmentCategory [id=" + id + ", name=" + name + ", nourishments=" + nourishments
+				+ ", otherNourishments=" + otherNourishments + ", seedsAndCereals=" + seedsAndCereals + "]";
+	}
 	
 }
