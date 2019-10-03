@@ -9,6 +9,8 @@ import pl.justyna.HelloBunnies.model.NourishmentCategory;
 import pl.justyna.HelloBunnies.repository.NourishmentCategoryRepository;
 import pl.justyna.HelloBunnies.service.NourishmentCategoryService;
 import pl.justyna.HelloBunnies.service.NourishmentService;
+import pl.justyna.HelloBunnies.service.OtherNourishmentService;
+import pl.justyna.HelloBunnies.service.SeedAndCerealService;
 
 @Service
 public class NourishmentCategoryServiceImpl implements NourishmentCategoryService {
@@ -18,6 +20,12 @@ public class NourishmentCategoryServiceImpl implements NourishmentCategoryServic
 	
 	@Autowired
 	private NourishmentService nourishmentService;
+	
+	@Autowired
+	private OtherNourishmentService otherNourishmentService;
+	
+	@Autowired
+	private SeedAndCerealService seedAndCerealService;
 
 	@Override
 	public void create(NourishmentCategory nourishmentCategory) {
@@ -34,6 +42,10 @@ public class NourishmentCategoryServiceImpl implements NourishmentCategoryServic
 		NourishmentCategory nourishmentCategory = nourishmentCategoryRepository.findById(id).get();
 		
 		nourishmentCategory.setNourishments(nourishmentService.selectByIdNourishmentCategory(id));
+		
+		nourishmentCategory.setOtherNourishments(otherNourishmentService.selectByIdNourishmentCategory(id));
+		
+		nourishmentCategory.setSeedsAndCereals(seedAndCerealService.selectByIdNourishmentCategory(id));
 		
 		return nourishmentCategory;
 	}
