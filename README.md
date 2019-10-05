@@ -1,7 +1,7 @@
 # HelloBunniesApi
 Back-End for Hello Bunnies Aplication
 
-#Technologies
+# Technologies
  * Java
  * Spring Boot
  * Hibernate
