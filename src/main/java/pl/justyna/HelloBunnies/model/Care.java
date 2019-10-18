@@ -9,6 +9,15 @@ import pl.justyna.HelloBunnies.model.base.NameAndDescription;
 
 @Entity
 public class Care extends NameAndDescription{
+	
+	public Care() {
+	}
+
+	public Care(Long idCareCategory, String name, String description) {
+		this.setIdCareCategory(idCareCategory);
+		this.setName(name);
+		this.setDescription(description);
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
