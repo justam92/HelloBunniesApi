@@ -6,7 +6,7 @@ import pl.justyna.HelloBunnies.model.Disease;
 
 public interface DiseaseService {
 
-	List<Disease> selectByIdDiseaseType(Long idDiseaseType);
+	List<Disease> selectByIdDiseaseCategory(Long idDiseaseCategory);
 	
 	void create(Disease disease);
 	
