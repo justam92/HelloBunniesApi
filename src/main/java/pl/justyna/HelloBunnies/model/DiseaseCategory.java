@@ -11,6 +11,13 @@ import javax.persistence.Transient;
 
 @Entity
 public class DiseaseCategory {
+	
+	public DiseaseCategory() {
+	}
+
+	public DiseaseCategory(String name) {
+		this.setName(name);
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,49 +26,7 @@ public class DiseaseCategory {
 	private String name;
 	
 	@Transient
-	private List<DiseaseType> diseasesTypes = new ArrayList<DiseaseType>();
-
-	@Override
-	public String toString() {
-		return "DiseaseCategory [id=" + id + ", name=" + name + ", diseasesTypes=" + diseasesTypes + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((diseasesTypes == null) ? 0 : diseasesTypes.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DiseaseCategory other = (DiseaseCategory) obj;
-		if (diseasesTypes == null) {
-			if (other.diseasesTypes != null)
-				return false;
-		} else if (!diseasesTypes.equals(other.diseasesTypes))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
-	}
+	private List<Disease> diseases = new ArrayList<Disease>();
 
 	public Long getId() {
 		return id;
@@ -79,13 +44,54 @@ public class DiseaseCategory {
 		this.name = name;
 	}
 
-	public List<DiseaseType> getDiseasesTypes() {
-		return diseasesTypes;
+	public List<Disease> getDiseases() {
+		return diseases;
 	}
 
-	public void setDiseasesTypes(List<DiseaseType> diseasesTypes) {
-		this.diseasesTypes = diseasesTypes;
+	public void setDiseases(List<Disease> diseases) {
+		this.diseases = diseases;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((diseases == null) ? 0 : diseases.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DiseaseCategory other = (DiseaseCategory) obj;
+		if (diseases == null) {
+			if (other.diseases != null)
+				return false;
+		} else if (!diseases.equals(other.diseases))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "DiseaseCategory [id=" + id + ", name=" + name + ", diseases=" + diseases + "]";
+	}
+
 }
