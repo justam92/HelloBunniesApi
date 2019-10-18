@@ -11,6 +11,13 @@ import javax.persistence.Transient;
 
 @Entity
 public class CareCategory {
+	
+	public CareCategory() {
+	}
+
+	public CareCategory(String name) {
+		this.setName(name);
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
