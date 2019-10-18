@@ -5,18 +5,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.Type;
 
 import pl.justyna.HelloBunnies.model.base.NameAndDescription;
 
 @Entity
 public class Disease extends NameAndDescription{
+	
+	public Disease() {
+	}
+
+	public Disease(Long idDiseaseCategory, String name, String description) {
+		this.setIdDiseaseCategory(idDiseaseCategory);
+		this.setName(name);
+		this.setDescription(description);
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long idDiseaseType;
+	private Long idDiseaseCategory;
 
 	public Long getId() {
 		return id;
@@ -26,12 +34,12 @@ public class Disease extends NameAndDescription{
 		this.id = id;
 	}
 
-	public Long getIdDiseaseType() {
-		return idDiseaseType;
+	public Long getIdDiseaseCategory() {
+		return idDiseaseCategory;
 	}
 
-	public void setIdDiseaseType(Long idDiseaseType) {
-		this.idDiseaseType = idDiseaseType;
+	public void setIdDiseaseCategory(Long idDiseaseCategory) {
+		this.idDiseaseCategory = idDiseaseCategory;
 	}
-	
+
 }
