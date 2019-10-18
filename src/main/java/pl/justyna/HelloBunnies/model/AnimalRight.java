@@ -9,6 +9,13 @@ import pl.justyna.HelloBunnies.model.base.NameAndDescription;
 
 @Entity
 public class AnimalRight extends NameAndDescription{
+	
+	public AnimalRight() {}
+	
+	public AnimalRight(String name, String description) {
+		this.setName(name);
+		this.setDescription(description);
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
