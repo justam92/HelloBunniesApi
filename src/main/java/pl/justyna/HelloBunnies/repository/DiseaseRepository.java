@@ -8,5 +8,5 @@ import pl.justyna.HelloBunnies.model.Disease;
 
 public interface DiseaseRepository extends JpaRepository<Disease, Long>{
 
-	List<Disease> findByIdDiseaseType(Long idDiseaseType);
+	List<Disease> findByIdDiseaseCategory(Long idDiseaseCategory);
 }
