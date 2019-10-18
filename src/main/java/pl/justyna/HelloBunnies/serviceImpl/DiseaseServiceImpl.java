@@ -16,8 +16,8 @@ public class DiseaseServiceImpl implements DiseaseService{
 	private DiseaseRepository diseaseRepository;
 
 	@Override
-	public List<Disease> selectByIdDiseaseType(Long idDiseaseType) {
-		return diseaseRepository.findByIdDiseaseType(idDiseaseType);
+	public List<Disease> selectByIdDiseaseCategory(Long idDiseaseCategory) {
+		return diseaseRepository.findByIdDiseaseCategory(idDiseaseCategory);
 	}
 
 	@Override
