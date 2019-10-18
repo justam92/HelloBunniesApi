@@ -11,6 +11,13 @@ import javax.persistence.Transient;
 
 @Entity
 public class NourishmentCategory {
+	
+	public NourishmentCategory() {
+	}
+
+	public NourishmentCategory(String name) {
+		this.setName(name);
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

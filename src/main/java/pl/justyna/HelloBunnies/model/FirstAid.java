@@ -8,7 +8,15 @@ import javax.persistence.Id;
 import pl.justyna.HelloBunnies.model.base.NameAndDescription;
 
 @Entity
-public class FirstAid extends NameAndDescription{
+public class FirstAid extends NameAndDescription {
+
+	public FirstAid() {
+	}
+
+	public FirstAid(String name, String description) {
+		this.setName(name);
+		this.setDescription(description);
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

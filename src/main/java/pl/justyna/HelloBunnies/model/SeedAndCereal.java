@@ -9,6 +9,16 @@ import javax.persistence.Id;
 @Entity
 public class SeedAndCereal {
 	
+	public SeedAndCereal() {
+	}
+
+	public SeedAndCereal(Long idNourishmentCategory, String name, OilyOrCereal oilyOrCereal, String destiny) {
+		this.setIdNourishmentCategory(idNourishmentCategory);
+		this.setName(name);
+		this.setOilyOrCereal(oilyOrCereal);
+		this.setDestiny(destiny);
+	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -112,5 +122,7 @@ public class SeedAndCereal {
 		return "SeedAndCereal [id=" + id + ", idNourishmentCategory=" + idNourishmentCategory + ", name=" + name
 				+ ", oilyOrCereal=" + oilyOrCereal + ", destiny=" + destiny + "]";
 	}
+
+	
 
 }

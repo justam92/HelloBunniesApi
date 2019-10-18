@@ -9,6 +9,14 @@ import pl.justyna.HelloBunnies.model.base.NameAndDescription;
 
 @Entity
 public class FirstBunny extends NameAndDescription {
+	
+	public FirstBunny() {
+	}
+
+	public FirstBunny(String name, String description) {
+		this.setName(name);
+		this.setDescription(description);
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

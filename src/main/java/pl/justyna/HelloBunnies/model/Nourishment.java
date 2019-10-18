@@ -8,6 +8,19 @@ import javax.persistence.Id;
 @Entity
 public class Nourishment {
 	
+	public Nourishment() {
+	}
+
+	public Nourishment(Long idNourishmentCategory, String name, String vitaminC, String calcium, String phosphorus, String administrationFrequency, String whatCanYouGive) {
+		this.setIdNourishmentCategory(idNourishmentCategory);
+		this.setName(name);
+		this.setVitaminC(vitaminC);
+		this.setCalcium(calcium);
+		this.setPhosphorus(phosphorus);
+		this.setAdministrationFrequency(administrationFrequency);
+		this.setWhatCanYouGive(whatCanYouGive);
+	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -16,11 +29,11 @@ public class Nourishment {
 	
 	private String name;
 	
-	private int vitaminC;//TODO: int -> String
+	private String vitaminC;
 	
-	private int calcium;//TODO: int -> String
+	private String calcium;
 	
-	private int phosphorus;//TODO: int -> String
+	private String phosphorus;
 	
 	private String administrationFrequency;
 	
@@ -50,27 +63,27 @@ public class Nourishment {
 		this.name = name;
 	}
 
-	public int getVitaminC() {
+	public String getVitaminC() {
 		return vitaminC;
 	}
 
-	public void setVitaminC(int vitaminC) {
+	public void setVitaminC(String vitaminC) {
 		this.vitaminC = vitaminC;
 	}
 
-	public int getCalcium() {
+	public String getCalcium() {
 		return calcium;
 	}
 
-	public void setCalcium(int calcium) {
+	public void setCalcium(String calcium) {
 		this.calcium = calcium;
 	}
 
-	public int getPhosphorus() {
+	public String getPhosphorus() {
 		return phosphorus;
 	}
 
-	public void setPhosphorus(int phosphorus) {
+	public void setPhosphorus(String phosphorus) {
 		this.phosphorus = phosphorus;
 	}
 
@@ -95,12 +108,12 @@ public class Nourishment {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((administrationFrequency == null) ? 0 : administrationFrequency.hashCode());
-		result = prime * result + calcium;
+		result = prime * result + ((calcium == null) ? 0 : calcium.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((idNourishmentCategory == null) ? 0 : idNourishmentCategory.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + phosphorus;
-		result = prime * result + vitaminC;
+		result = prime * result + ((phosphorus == null) ? 0 : phosphorus.hashCode());
+		result = prime * result + ((vitaminC == null) ? 0 : vitaminC.hashCode());
 		result = prime * result + ((whatCanYouGive == null) ? 0 : whatCanYouGive.hashCode());
 		return result;
 	}
@@ -119,7 +132,10 @@ public class Nourishment {
 				return false;
 		} else if (!administrationFrequency.equals(other.administrationFrequency))
 			return false;
-		if (calcium != other.calcium)
+		if (calcium == null) {
+			if (other.calcium != null)
+				return false;
+		} else if (!calcium.equals(other.calcium))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -136,9 +152,15 @@ public class Nourishment {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (phosphorus != other.phosphorus)
+		if (phosphorus == null) {
+			if (other.phosphorus != null)
+				return false;
+		} else if (!phosphorus.equals(other.phosphorus))
 			return false;
-		if (vitaminC != other.vitaminC)
+		if (vitaminC == null) {
+			if (other.vitaminC != null)
+				return false;
+		} else if (!vitaminC.equals(other.vitaminC))
 			return false;
 		if (whatCanYouGive == null) {
 			if (other.whatCanYouGive != null)
@@ -154,6 +176,5 @@ public class Nourishment {
 				+ ", vitaminC=" + vitaminC + ", calcium=" + calcium + ", phosphorus=" + phosphorus
 				+ ", administrationFrequency=" + administrationFrequency + ", whatCanYouGive=" + whatCanYouGive + "]";
 	}
-
 
 }

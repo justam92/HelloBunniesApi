@@ -10,6 +10,14 @@ import pl.justyna.HelloBunnies.model.base.NameAndDescription;
 @Entity
 public class Poison extends NameAndDescription{
 
+	public Poison() {
+	}
+
+	public Poison(String name, String description) {
+		this.setName(name);
+		this.setDescription(description);
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
