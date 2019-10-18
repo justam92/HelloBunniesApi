@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import pl.justyna.HelloBunnies.model.DiseaseCategory;
 import pl.justyna.HelloBunnies.repository.DiseaseCategoryRepository;
 import pl.justyna.HelloBunnies.service.DiseaseCategoryService;
-import pl.justyna.HelloBunnies.service.DiseaseTypeService;
+import pl.justyna.HelloBunnies.service.DiseaseService;
 
 @Service
 public class DiseaseCategoryServiceImpl implements DiseaseCategoryService{
@@ -17,7 +17,7 @@ public class DiseaseCategoryServiceImpl implements DiseaseCategoryService{
 	private DiseaseCategoryRepository diseaseCategoryRepository;
 	
 	@Autowired
-	private DiseaseTypeService diseaseTypeService;
+	private DiseaseService diseaseService;
 
 	@Override
 	public void create(DiseaseCategory diseaseCategory) {
@@ -33,7 +33,7 @@ public class DiseaseCategoryServiceImpl implements DiseaseCategoryService{
 	public DiseaseCategory selectById(Long id) {
 		DiseaseCategory diseaseCategory = diseaseCategoryRepository.findById(id).get();
 		
-		diseaseCategory.setDiseasesTypes(diseaseTypeService.selectByIdDiseaseCategory(id));
+		diseaseCategory.setDiseases(diseaseService.selectByIdDiseaseCategory(id));
 		
 		return diseaseCategory;
 	}
